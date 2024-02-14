@@ -1,0 +1,6 @@
+version: 0
+services:
+  - name: web
+    env: python
+    build_command: python manage.py collectstatic --no-input
+    start_command: gunicorn your_project_name.wsgi:application -b 0.0.0.0:$PORT

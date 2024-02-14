@@ -87,9 +87,11 @@ DATABASES = {
     }
 }
 
-import dj_database_url,os
-DATABASES={
-    'default': dj_database_url.parse('postgres://food_api_postgresql_db_user:8Y1jN9KkdaPbm6BxEPy63GvoIZ9Hz3iL@dpg-cn68s8gcmk4c73dusmrg-a.oregon-postgres.render.com/food_api_postgresql_db')
+import dj_database_url
+import os
+
+DATABASES = {
+    'default': dj_database_url.config(default=os.getenv('DATABASE_URL'))
 }
 
 
